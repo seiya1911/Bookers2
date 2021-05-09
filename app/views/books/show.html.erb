@@ -1,5 +1,5 @@
 <div class="post-body">
-  <p>ユーザー画像</p>
+  <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
   <p><%= @book.user.name %></p>
   <p><%= @book.title %></p>
   <p><%= @book.body %></p

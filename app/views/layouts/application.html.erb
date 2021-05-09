@@ -12,11 +12,9 @@
   <body>
     <% if user_signed_in? %>
 
-    <li>
-        <%= link_to 'New Book', new_book_path %>
-      </li>
-
-    <li>Home</li>
+     <li>
+      <%= link_to 'Home', user_path(current_user.id) %>
+    </li>
     <li>Users</li>
     <li><%= link_to "Books", books_path %></li>
       <li>
