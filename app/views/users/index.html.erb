@@ -16,12 +16,10 @@
   <%= f.submit 'Create Book' %>
 <% end %>
 
-<% @books.each do |book| %>
+<% @users.each do |user| %>
 <div>
-  <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-  <%= link_to book_path(book.id) do %>
-  <%= book.title %>
-  <% end %>
-  <p><%= book.body %></p>
+  <%= attachment_image_tag user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+  <p>name：<%= user.name %></p>
+  <%= link_to 'Show', user_path(user) %>
 </div>
 <% end %>
