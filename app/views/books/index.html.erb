@@ -1,6 +1,7 @@
-<%= render'users/list', user:@user %>
+<div lass="container px-5 px-sm-0">
+ <div class="row">
 
-<%= render'books/list', book:@book %>
+<%= render'books/list', user:@user, book:@book %>
 
 <% @books.each do |book| %>
 <div>
@@ -11,3 +12,6 @@
   <p>Opinion：<%= book.body %></p>
 </div>
 <% end %>
+
+ </div>
+</div>

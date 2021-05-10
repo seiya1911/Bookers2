@@ -19,8 +19,13 @@ class UsersController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
-    @book.save
-    redirect_to books_path
+    if @book.save
+     redirect_to books_path
+    else
+      user = current_user
+      @book = Book.all
+      render 'book/index'
+    end
   end
 
   def edit

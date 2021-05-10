@@ -1,13 +1,17 @@
-<%= render'users/list', user:@user %>
+<div lass="container px-5 px-sm-0">
+ <div class="row">
 
-<%= render'books/list', book:@book %>
+<%= render'books/list', user:@user, book:@book %>
 
 <div class="post-body">
   <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
   <p><%= @book.user.name %></p>
   <p><%= @book.title %></p>
-  <p><%= @book.body %></p
+  <p><%= @book.body %></p>
   <% if @book.user == current_user %>
   <%= link_to 'Destroy', book_path(@book), method: :delete %>
   <% end %>
+</div>
+
+ </div>
 </div>
