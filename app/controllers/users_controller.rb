@@ -20,8 +20,9 @@ class UsersController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-     redirect_to books_path
+     redirect_to books_path, notice: 'You have created book successfully.'
     else
+      flash.now[:alert] = 'error prohibited this obj from being saved:'
       user = current_user
       @book = Book.all
       render 'book/index'
@@ -34,8 +35,11 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    @user.update(user_params)
+    if @user.update(user_params)
     redirect_to user_path(@user.id)
+  else
+    render :edit
+  end
   end
 
   private
