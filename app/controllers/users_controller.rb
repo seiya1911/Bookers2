@@ -5,7 +5,6 @@ class UsersController < ApplicationController
     @book = Book.new
   end
 
-
   def show
     @book = Book.new
     @user = User.find(params[:id])
@@ -20,7 +19,7 @@ class UsersController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-     redirect_to books_path, notice: 'You have created book successfully.'
+      redirect_to books_path, notice: 'You have created book successfully.'
     else
       flash.now[:alert] = 'error prohibited this obj from being saved:'
       user = current_user
@@ -41,9 +40,9 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    redirect_to user_path(@user), notice: 'You have updated user successfully.'
+      redirect_to user_path(@user), notice: 'You have updated user successfully.'
     else
-    render :edit
+      render :edit
     end
   end
 
@@ -52,6 +51,4 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :profile_image, :introduction)
   end
-
-
 end
